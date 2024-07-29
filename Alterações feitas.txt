@@ -1,0 +1,10 @@
+1 - Os valores de contas foram alterados para String, assim, se houver uma conta que começa com "0", não terá problemas;
+2 - O código principal foi dividido em 3 classes:
+	2.1: ContasSaldo - Classe de domínio (model);
+	2.2: TransacaoFinanceiraService - Responsável por fazer toda a parte da transação;
+	2.3: TransacaoFinanceiraApplication - Classe que contém a main, que é responsável por dar início às transferências.
+3 - O método de atualizar a tabela de saldos passa a ser chamado assim que os novos saldos são atribuídos. Se houver erro ao atualizar a tabela, a transação é desfeita;
+4 - Foi feita um método para verificar se ambas as contas (destino e origem) existem antes de tentar a transação;
+5 - Foi criada uma verificação se as contas de origem e destino são iguais. Nesse caso, a transferência não será realizada;
+6 - As transações serão agrupadas por data/hora em que foram feitas e as threads irão rodar apenas transações feitas no mesmo momento;
+7 - Foram feitos alguns cenários de testes unitários (transferência com sucesso, contas iguais, saldo insuficiente).
